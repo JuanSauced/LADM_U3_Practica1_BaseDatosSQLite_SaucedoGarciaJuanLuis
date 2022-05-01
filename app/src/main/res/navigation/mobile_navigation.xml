@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.ui.home.HomeFragment"
+        android:label="Agregar Propietario"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.ui.gallery.GalleryFragment"
+        android:label="Buscar Propietario"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.ui.slideshow.SlideshowFragment"
+        android:label="Cambios Propietario"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_agrMas"
+        android:name="mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.ui.InsMas.InsMasFragment"
+        android:label="Agergar Mascota"
+        tools:layout="@layout/ins_mas_fragment" />
+    <fragment
+        android:id="@+id/nav_buscMas"
+        android:name="mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.ui.ConsMas.ConsultaMasFragment"
+        android:label="Buscar Mascota"
+        tools:layout="@layout/consulta_mas_fragment" />
+    <fragment
+        android:id="@+id/nav_elMas"
+        android:name="mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.ui.ElimActMascota.ActEliMasFragment"
+        android:label="Cambios a Mascota"
+        tools:layout="@layout/act_eli_mas_fragment" />
+</navigation>
