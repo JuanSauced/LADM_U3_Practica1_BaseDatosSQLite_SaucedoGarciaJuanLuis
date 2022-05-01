@@ -56,6 +56,7 @@ class GalleryFragment : Fragment() {
             binding.etEdadM.setText("")
             binding.etTelefono.setText("")
             binding.etNombre.setText("")
+            binding.etEdadMa.setText("")
         }
 
 

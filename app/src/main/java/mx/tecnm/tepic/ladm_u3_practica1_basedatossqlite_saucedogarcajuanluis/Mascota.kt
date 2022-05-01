@@ -212,6 +212,28 @@ class Mascota(este: Context) {
         }
         return true
     }
+    //Verificar llaver foraneas
+    fun conteoRegistros(regCurp:String):Int{
+        var cont=0
+        err=""
+        var baseDatos=BaseDatos(este,"VETERINARIA",null,1)
+        var arreglo=ArrayList<String>()
+        try {
+            var tabla=baseDatos.readableDatabase
+            var SQL_SELECT= "SELECT * FROM MASCOTA  WHERE CURP=?"
+            var cursor= tabla.rawQuery(SQL_SELECT,arrayOf(regCurp))
+            if(cursor.moveToFirst()){
+                do{
+                    cont++
+                }while (cursor.moveToNext())
+            }
+        }catch (err:SQLiteException){
+            this.err=err.message!!
+        }finally {
+            baseDatos.close()
+        }
+        return cont
+    }
 
 
 }

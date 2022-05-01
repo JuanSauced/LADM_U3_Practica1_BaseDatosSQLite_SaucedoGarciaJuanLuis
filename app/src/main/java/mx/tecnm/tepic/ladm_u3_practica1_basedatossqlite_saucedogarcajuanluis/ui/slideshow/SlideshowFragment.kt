@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.Mascota
 import mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.Propietario
 import mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.databinding.FragmentSlideshowBinding
 
@@ -69,19 +70,26 @@ class SlideshowFragment : Fragment() {
             if(binding.etEdad.equals("") || binding.etNombre.equals("") || binding.etTelefono.equals("")){
                 Toast.makeText(requireContext(),"Ingrese todos los campo",Toast.LENGTH_LONG).show()
             }else{
+
                 var act= Propietario(requireContext())
                 act.curp=curp
-                act.edad=binding.etEdad.text.toString().toInt()
-                act.nombre=binding.etNombre.text.toString()
-                act.telefono=binding.etTelefono.text.toString()
-                act.eliminar(curp)
+                var cont = Mascota(requireContext())
+                if(cont.conteoRegistros(curp)==0) {
+                    act.edad = binding.etEdad.text.toString().toInt()
+                    act.nombre = binding.etNombre.text.toString()
+                    act.telefono = binding.etTelefono.text.toString()
+                    act.eliminar(curp)
 
-                binding.etEdad.setText("")
-                binding.etNombre.setText("")
-                binding.etTelefono.setText("")
-                Toast.makeText(requireContext(),"Se a eliminado el campo",Toast.LENGTH_LONG).show()
-                arr=mos.mostrarLista()
-                mostrarLista(arr)
+                    binding.etEdad.setText("")
+                    binding.etNombre.setText("")
+                    binding.etTelefono.setText("")
+                    Toast.makeText(requireContext(), "Se a eliminado el campo", Toast.LENGTH_LONG)
+                        .show()
+                    arr = mos.mostrarLista()
+                    mostrarLista(arr)
+                }else{
+                    Toast.makeText(requireContext(),"Borre sus mascotas primero",Toast.LENGTH_LONG).show()
+                }
             }
 
         }
