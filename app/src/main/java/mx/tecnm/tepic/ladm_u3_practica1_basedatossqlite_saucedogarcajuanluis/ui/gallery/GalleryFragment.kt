@@ -53,6 +53,9 @@ class GalleryFragment : Fragment() {
                 arr=mos.mostrarNombreLike(binding.etNombre.text.toString())
                 mostrarLista(arr)
             }
+            binding.etEdadM.setText("")
+            binding.etTelefono.setText("")
+            binding.etNombre.setText("")
         }
 
 

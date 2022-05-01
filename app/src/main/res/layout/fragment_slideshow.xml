@@ -37,6 +37,7 @@
         android:layout_below="@+id/tvTelefono"
         android:id="@+id/etTelefono"
         android:layout_marginLeft="20dp"
+        android:inputType="number"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -53,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvEdad"
         android:id="@+id/etEdad"
+        android:inputType="number"
         android:layout_marginLeft="20dp"
         />
     <Button

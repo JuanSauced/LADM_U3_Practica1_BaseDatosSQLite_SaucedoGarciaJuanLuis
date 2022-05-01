@@ -150,7 +150,7 @@ fun mostrarNombre(nombreBuscar:String):ArrayList<String>{
         listaCurp.clear()
         try {
             var tabla=baseDatos.readableDatabase
-            var SQL_SELECT= "SELECT * FROM PROPIETARIO  WHERE NOMBRE=?"
+            var SQL_SELECT= "SELECT * FROM PROPIETARIO  WHERE TELEFONO=?"
 
             var cursor= tabla.rawQuery(SQL_SELECT,arrayOf(telefonoBuscar))
             if(cursor.moveToFirst()){
