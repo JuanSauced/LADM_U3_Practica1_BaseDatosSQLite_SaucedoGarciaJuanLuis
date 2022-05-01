@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.Mascota
 import mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.Propietario
 import mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.R
@@ -49,16 +50,25 @@ class InsMasFragment : Fragment() {
         }
 
         binding.btnAgregarMascota.setOnClickListener {
-            mos.nombre=binding.etNombre.text.toString()
-            mos.raza=binding.etRaza.text.toString()
-            mos.curp=binding.getCurp.text.toString()
-            binding.etNombre.setText("")
-            binding.etRaza.setText("")
-            binding.etNombreProp.setText("")
-            binding.getCurp.setText("Seleccione un propietario")
-            mos.insertar()
-            arr=mos.mostrarLista()
-            mostrarLista(arr)
+            if (binding.etNombre.text.toString().equals("") || binding.etRaza.text.toString().equals("")){
+                Toast.makeText(requireContext(),"Rellene los campos",Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            if(binding.getCurp.text.toString().equals("Seleccione un propietario")) {
+                Toast.makeText(requireContext(),"Seleccione un Propietario",Toast.LENGTH_LONG).show()
+            }else {
+
+                mos.nombre = binding.etNombre.text.toString()
+                mos.raza = binding.etRaza.text.toString()
+                mos.curp = binding.getCurp.text.toString()
+                binding.etNombre.setText("")
+                binding.etRaza.setText("")
+                binding.etNombreProp.setText("")
+                binding.getCurp.setText("Seleccione un propietario")
+                mos.insertar()
+                arr = mos.mostrarLista()
+                mostrarLista(arr)
+            }
         }
 
 

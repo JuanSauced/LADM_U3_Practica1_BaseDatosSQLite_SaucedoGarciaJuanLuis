@@ -49,6 +49,7 @@ class SlideshowFragment : Fragment() {
         binding.btnActualizar.setOnClickListener {
             if(binding.etEdad.equals("") || binding.etNombre.equals("") || binding.etTelefono.equals("")){
                 Toast.makeText(requireContext(),"Ingrese todos los campo",Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }else{
                 var act= Propietario(requireContext())
                 act.curp=curp
@@ -69,6 +70,7 @@ class SlideshowFragment : Fragment() {
         binding.btnEliminar.setOnClickListener {
             if(binding.etEdad.equals("") || binding.etNombre.equals("") || binding.etTelefono.equals("")){
                 Toast.makeText(requireContext(),"Ingrese todos los campo",Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }else{
 
                 var act= Propietario(requireContext())

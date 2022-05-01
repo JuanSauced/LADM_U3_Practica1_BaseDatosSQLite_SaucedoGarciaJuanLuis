@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import mx.tecnm.tepic.ladm_u3_practica1_basedatossqlite_saucedogarcajuanluis.Propietario
@@ -38,6 +39,14 @@ class HomeFragment : Fragment() {
         mostrarLista(arr)
 
         binding.btnAgregarPropietario.setOnClickListener {
+            if (binding.etCurp.text.toString().equals("") ||
+                binding.etEdad.text.toString().equals("") ||
+                binding.etNombre.text.toString().equals("") ||
+                binding.etTelefono.text.toString().equals("")){
+                Toast.makeText(requireContext(),"Rellene los campos", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             var prop=Propietario(requireContext())
             prop.curp=binding.etCurp.text.toString()
             prop.edad=binding.etEdad.text.toString().toInt()
